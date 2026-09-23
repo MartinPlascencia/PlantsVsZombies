@@ -332,6 +332,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zombie
   characterAnimator: {fileID: 1854425976}
+  zombieData: {fileID: 0}
+--- !u!1 &94180209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94180211}
+  - component: {fileID: 94180210}
+  m_Layer: 0
+  m_Name: Peashooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &94180210
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94180209}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.74133676, y: 1.679743, z: 0.9037534}
+  m_Center: {x: -0.021054, y: 0.98925436, z: -0.0481233}
+--- !u!4 &94180211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94180209}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.31, y: 2.88, z: -1.965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 708174604}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &140721004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1434,6 +1489,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1985860520478105061, guid: 3ef7289946b204a5793aa0a6014e4dc6, type: 3}
   m_PrefabInstance: {fileID: 682375671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &708174603
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 94180211}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+      propertyPath: m_Name
+      value: PeashooterTPose
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+--- !u!4 &708174604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e12dcdf29c099b479a9e48e2b6562f1, type: 3}
+  m_PrefabInstance: {fileID: 708174603}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &740218663
 PrefabInstance:
@@ -4779,3 +4896,4 @@ SceneRoots:
   - {fileID: 1461616096}
   - {fileID: 1807751187}
   - {fileID: 388573296}
+  - {fileID: 94180211}
