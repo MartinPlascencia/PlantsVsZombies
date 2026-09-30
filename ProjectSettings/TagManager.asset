@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Plant
+  - FxTemporaire
+  - Zombie
   layers:
   - Default
   - TransparentFX
