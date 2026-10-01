@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     }
     public virtual void Die()
     {
+        StopAllCoroutines();
         characterCollider.enabled = false;
         StartCoroutine(DieCoroutine());
     }

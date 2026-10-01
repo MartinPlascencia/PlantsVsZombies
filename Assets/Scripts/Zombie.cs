@@ -22,7 +22,7 @@ public class Zombie : Character
     }
     private void OnEnable()
     {
-        SoundManager.instance.Play(zombieData.appearSound);
+        //SoundManager.instance.Play(zombieData.appearSound);
         currentTarget = null;
         canAttack = true;
         ActivateTargetDetection(true);
