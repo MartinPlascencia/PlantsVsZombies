@@ -18,6 +18,7 @@ public class Zombie : Character
     {
         ActivateTargetDetection(false);
         SoundManager.instance.Play(zombieData.deathSound);
+        PoolManager.Instance.GetObject(zombieData.deathParticles, transform.position);
         base.Die();
     }
     private void OnEnable()
@@ -64,6 +65,7 @@ public class Zombie : Character
         characterAnimator.Play("Attack", 0, 0f);
         yield return new WaitForSeconds(zombieData.attackCooldown);
         currentTarget.TakeDamage(zombieData.damage);
+        SoundManager.instance.Play(zombieData.hitSound);
         PoolManager.Instance.GetObject(zombieData.attackParticles, currentTarget.transform.position);
         if (currentTarget.IsDead) currentTarget = null;
         yield return new WaitForSeconds(zombieData.attackCooldown);
