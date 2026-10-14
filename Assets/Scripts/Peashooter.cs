@@ -17,11 +17,16 @@ public class Peashooter : Character
         detectTarget = GetComponent<DetectTarget>();
         detectTarget.SetRange(shooterPlantData.range);
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        currentTarget = null;
+        base.OnEnable();
         //SoundManager.instance.Play(shooterPlantData.appearSound);
         health.Initialize();
-        currentTarget = null;
+    }
+    public override void Initialize()
+    {
+        base.Initialize();
         canAttack = true;
         ActivateTargetDetection(true);
     }
@@ -67,8 +72,8 @@ public class Peashooter : Character
         characterAnimator.Play("Shoot", 0, 0f);
         yield return new WaitForSeconds(shooterPlantData.shootTime);
         GameObject bullet = PoolManager.Instance.GetObject(shooterPlantData.bulletPrefab, 
-            shootPivot.position);
-        bullet.SetActive(false);
+            shootPivot.position, true);
+        //bullet.SetActive(false);
         bullet.GetComponent<Bullet>().Damage = shooterPlantData.damage;
         bullet.transform.position = shootPivot.position;
         bullet.transform.rotation = shootPivot.rotation;

@@ -11,17 +11,20 @@ public class Pool : MonoBehaviour
     public GameObject Prefab { set => prefab = value; }
     private GameObject currentObject;
     public GameObject CurrentObject => currentObject;
-    public void InstantiateObject(Vector3 position)
+    public void InstantiateObject(Vector3 position, bool isTurnedOff = false)
     {
         if (poolStack.Count > 0)
         {
             currentObject = poolStack.Pop();
             currentObject.transform.position = position;
-            currentObject.SetActive(true);
+            if (!isTurnedOff)
+                currentObject.SetActive(true);
         }
         else
         {
             currentObject = Instantiate(prefab, position, Quaternion.identity);
+            if (isTurnedOff)
+                currentObject.SetActive(false);
             currentObject.AddComponent<PoolObject>().Pool = this;
         }
         activeObjects.Add(currentObject);

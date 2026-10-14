@@ -21,13 +21,18 @@ public class Zombie : Character
         PoolManager.Instance.GetObject(zombieData.deathParticles, transform.position);
         base.Die();
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
         //SoundManager.instance.Play(zombieData.appearSound);
         currentTarget = null;
+        base.OnEnable();
+        health.Initialize();
+    }
+    public override void Initialize()
+    {
+        base.Initialize();
         canAttack = true;
         ActivateTargetDetection(true);
-        health.Initialize();
     }
     private void ActivateTargetDetection(bool isActive)
     {
