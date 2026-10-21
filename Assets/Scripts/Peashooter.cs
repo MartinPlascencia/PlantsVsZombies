@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Peashooter : Character
+public class Peashooter : Plant
 {
     [SerializeField]
     private ShooterPlantData shooterPlantData;

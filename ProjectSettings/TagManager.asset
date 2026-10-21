@@ -9,6 +9,7 @@ TagManager:
   - Zombie
   - Sun
   - Zone
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - ClickableObject
   - Plants
   - Zombies
-  - Zone
+  - DragZone
   - 
   - 
   - 
