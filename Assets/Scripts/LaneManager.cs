@@ -8,4 +8,8 @@ public class LaneManager : MonoBehaviour
     {
         return lanes[Random.Range(0, lanes.Length)];
     }
+    public Lane GetLane(int index)
+    {
+        return lanes[index];
+    }
 }

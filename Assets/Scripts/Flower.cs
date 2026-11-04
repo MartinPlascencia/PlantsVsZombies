@@ -20,7 +20,7 @@ public class Flower : Plant
         zoneDetector.DeactivateDetector();
         zones.Clear();
         base.OnEnable();
-        //SoundManager.instance.Play(flowerData.appearSound);
+        SoundManager.instance.Play(flowerData.appearSound);
     }
     public override void Initialize()
     {

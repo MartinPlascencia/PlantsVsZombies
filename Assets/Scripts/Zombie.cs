@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System;
 public class Zombie : Character
 {
     [SerializeField]
     private ZombieData zombieData;
     private DetectTarget detectTarget;
     private Health currentTarget;
+    public event Action<Zombie> onDie;
     private bool canAttack;
     protected override void Awake()
     {
@@ -19,11 +21,12 @@ public class Zombie : Character
         ActivateTargetDetection(false);
         SoundManager.instance.Play(zombieData.deathSound);
         PoolManager.Instance.GetObject(zombieData.deathParticles, transform.position);
+        onDie?.Invoke(this);
         base.Die();
     }
     protected override void OnEnable()
     {
-        //SoundManager.instance.Play(zombieData.appearSound);
+        SoundManager.instance.Play(zombieData.appearSound);
         currentTarget = null;
         base.OnEnable();
         health.Initialize();

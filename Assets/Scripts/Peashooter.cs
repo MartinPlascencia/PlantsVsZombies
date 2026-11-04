@@ -21,7 +21,7 @@ public class Peashooter : Plant
     {
         currentTarget = null;
         base.OnEnable();
-        //SoundManager.instance.Play(shooterPlantData.appearSound);
+        SoundManager.instance.Play(shooterPlantData.appearSound);
         health.Initialize();
     }
     public override void Initialize()

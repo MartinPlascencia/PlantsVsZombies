@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlantCreator : MonoBehaviour
 {
@@ -6,6 +7,14 @@ public class PlantCreator : MonoBehaviour
     private float raycastDistance;
     [SerializeField]
     private LayerMask plantLayer;
+    [SerializeField]
+    private SunManager sunManager;
+    [SerializeField]
+    private UnityEvent onPlantPlaced;
+    [SerializeField]
+    private UnityEvent onPlantCancelled;
+    [SerializeField]
+    private GameObject plantPlacesParticlesPrefab;
     private Transform objectToPlace;
     private bool objectPlaced;
     private Zone currentZone;
@@ -36,15 +45,19 @@ public class PlantCreator : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
+            Plant plant = objectToPlace.GetComponent<Plant>();
             if (!objectPlaced || currentZone == null || currentZone.IsOccupied)
             {
                 objectToPlace.gameObject.SetActive(false);
+                sunManager.AddSun(plant.Price);
+                onPlantCancelled?.Invoke();
             }
             else
             {
-                Plant plant = objectToPlace.GetComponent<Plant>();
+                onPlantPlaced?.Invoke();
                 plant.SetZone(currentZone);
                 plant.Initialize();
+                PoolManager.Instance.GetObject(plantPlacesParticlesPrefab, objectToPlace.position);
             }
             objectToPlace = null;
         }
