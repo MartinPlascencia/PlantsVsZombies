@@ -6,7 +6,7 @@ public class LevelsData : ScriptableObject
     public LevelData[] levels;
     [SerializeField]
     private int currentIndex;
-    public int CurrentIndex => currentIndex;
+    public int CurrentIndex { get => currentIndex; set => currentIndex = value; }
     public LevelData CurrentLevel => levels[currentIndex];
 }
 
