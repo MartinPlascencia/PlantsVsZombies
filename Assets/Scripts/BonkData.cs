@@ -7,4 +7,6 @@ public class BonkData : PlantData
     public float damage;
     public float range;
     public float attackRate;
+    public string punchSound;
+    public float punchTime = 1f;
 }
