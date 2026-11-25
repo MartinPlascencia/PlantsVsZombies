@@ -5,28 +5,28 @@ public class CardsManager : MonoBehaviour
 {
     [SerializeField]
     private Transform cardsBar;
-    private List<GameObject> cards = new List<GameObject>();
+    private List<PlantCard> cards = new List<PlantCard>();
     private void Awake()
     {
         foreach (Transform child in cardsBar)
         {
-            cards.Add(child.gameObject);
+            cards.Add(child.GetComponent<PlantCard>());
         }
     }
-    public void SetCards(PlantCardData[] plantCards)
+    public void SetCards(PlantCardType[] plantCards)
     {
-        foreach (GameObject card in cards)
+        foreach (PlantCard card in cards)
         {
             for (int i = 0; i < plantCards.Length; i++)
             {
-                if (plantCards[i].cardPrefab.name == card.name)
+                if (plantCards[i] == card.PlantCardType)
                 {
-                    card.SetActive(true);
+                    card.gameObject.SetActive(true);
                     break;
                 }
                 if (i == plantCards.Length - 1)
                 {
-                    card.SetActive(false);
+                    card.gameObject.SetActive(false);
                 }
             }
         }

@@ -3,7 +3,27 @@ guid: 0e12dcdf29c099b479a9e48e2b6562f1
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PeaShooter_Arms_DefaultPea
+    second: {fileID: 2100000, guid: d3b3c2008e3769441b4d15bf1b77a036, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PeaShooter_Body_DefaultPea
+    second: {fileID: 2100000, guid: d5cb500941fff3a4a8ecd7a48f9f16a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PeaShooter_Eye
+    second: {fileID: 2100000, guid: b6f3f4fa479f66d43b2acaf6b7969201, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PeaShooter_Head_DefaultPea
+    second: {fileID: 2100000, guid: d8b895a5ae6684045a28845c4bb503ad, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -18,7 +18,7 @@ public abstract class AttackingPlant : Plant
     {
         currentTarget = null;
     }
-    protected void Initialize()
+    public override void Initialize()
     {
         base.Initialize();
         canAttack = true;
