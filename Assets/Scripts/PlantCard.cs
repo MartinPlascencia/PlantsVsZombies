@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using System;
 using UnityEngine.EventSystems;
 
 public class PlantCard : MonoBehaviour, IPointerDownHandler
@@ -10,13 +11,9 @@ public class PlantCard : MonoBehaviour, IPointerDownHandler
     private int price => plantPrefab.GetComponent<Plant>().Price;
     [SerializeField]
     private GameObject plantPrefab;
-    [SerializeField]
     private SunManager sunManager;
-    [SerializeField]
-    private UnityEvent<Transform> onPlantBought;
-    [SerializeField]
-    private PlantCardType plantCardType;
-    public PlantCardType PlantCardType => plantCardType;
+    public SunManager SunManager { set => sunManager = value; }
+    public event Action<Transform> onPlantBought;
     private void Awake()
     {
         priceText.text = price.ToString();
@@ -35,12 +32,4 @@ public class PlantCard : MonoBehaviour, IPointerDownHandler
     {
         TryToBuyPlant();
     }
-}
-
-public enum PlantCardType
-{
-    Peashooter,
-    Flower,
-    Wallnut,
-    PlasmaPeashooter
 }

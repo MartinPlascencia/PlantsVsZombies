@@ -1,34 +1,23 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class CardsManager : MonoBehaviour
 {
     [SerializeField]
     private Transform cardsBar;
-    private List<PlantCard> cards = new List<PlantCard>();
-    private void Awake()
+    [SerializeField]
+    private SunManager sunManager;
+    [SerializeField]
+    private PlantCreator plantCreator;
+    public void SetCards(GameObject[] plantCards)
     {
-        foreach (Transform child in cardsBar)
+        foreach (GameObject plantCard in plantCards)
         {
-            cards.Add(child.GetComponent<PlantCard>());
-        }
-    }
-    public void SetCards(PlantCardType[] plantCards)
-    {
-        foreach (PlantCard card in cards)
-        {
-            for (int i = 0; i < plantCards.Length; i++)
-            {
-                if (plantCards[i] == card.PlantCardType)
-                {
-                    card.gameObject.SetActive(true);
-                    break;
-                }
-                if (i == plantCards.Length - 1)
-                {
-                    card.gameObject.SetActive(false);
-                }
-            }
+            GameObject cardObject = PoolManager.Instance.GetObject(plantCard, Vector3.zero);
+            cardObject.transform.SetParent(cardsBar);
+            cardObject.transform.localScale = Vector3.one;
+            PlantCard card = cardObject.GetComponent<PlantCard>();
+            card.SunManager = sunManager;
+            card.onPlantBought += plantCreator.SetObjectToPlace;
         }
     }
 }
